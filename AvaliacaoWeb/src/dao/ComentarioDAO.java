@@ -72,7 +72,7 @@ private Connection conexao;
 		}
 	}
 	
-	public Comentario selectPais (Comentario comentario) {
+	public Comentario select (Comentario comentario) {
 		Comentario not = null;
 		String consulta = "SELECT id, titulo, descricao, texto FROM Comentario WHERE id = ?";
 				

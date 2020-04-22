@@ -44,7 +44,7 @@ public class NoticiaDAO {
 	
 	public void delete (Noticia noticia) {
 			
-		String delete = "DELETE FROM Usuario WHERE apelido = ?";
+		String delete = "DELETE FROM Noticia WHERE titulo = ?";
 			
 		try (PreparedStatement pst = conexao.prepareStatement(delete)){
 			pst.setString(1, noticia.getTitulo());
@@ -59,13 +59,13 @@ public class NoticiaDAO {
 	}
 	
 	public void upDate (Noticia noticia) {		
-		String update = "UPDATE Usuario SET senha = ? WHERE apelido = ?";
+		String update = "UPDATE Noticia SET senha = ? WHERE apelido = ?";
 				
 		try (PreparedStatement pst = conexao.prepareStatement(update)){
 			pst.setInt(1, noticia.getId());
 			pst.setString(2, noticia.getTitulo());
-			pst.setString(2, noticia.getDescricao());
-			pst.setString(2, noticia.getTexto());
+			pst.setString(3, noticia.getDescricao());
+			pst.setString(4, noticia.getTexto());
 			pst.execute();
 				
 			System.out.println("Atualizado com sucesso!");
@@ -75,9 +75,9 @@ public class NoticiaDAO {
 		}
 	}
 	
-	public Noticia selectPais (Noticia noticia) {
+	public Noticia select (Noticia noticia) {
 		Noticia not = null;
-		String consulta = "SELECT id, titulo, descricao, texto FROM pais WHERE id = ?";
+		String consulta = "SELECT id, titulo, descricao, texto FROM Noticia WHERE id = ?";
 				
 		try (PreparedStatement pst = conexao.prepareStatement(consulta)){
 			pst.setInt(1, noticia.getId());
@@ -89,13 +89,13 @@ public class NoticiaDAO {
 				int idNoticia = resultado.getInt("id");
 				String titulo = resultado.getString("titulo");
 				String descricao = resultado.getString("descricao");
-				String texto = resultado.getString("area_total");
+				String texto = resultado.getString("texto");
 				
 				not.setId(idNoticia);
 				not.setTitulo(titulo);
 				not.setDescricao(descricao);
 				not.setTexto(texto);
-				System.out.println("Esse é o pais: " + not.toString());
+				System.out.println("Essa é a noticia: " + not.toString());
 			}
 			System.out.println("Consulta feita com sucesso");
 			
