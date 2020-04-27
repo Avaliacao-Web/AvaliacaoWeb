@@ -21,7 +21,7 @@ public class ConnectionFactory {
 		try {
 			System.out.println("Estabelecendo Conexão...");
 			
-			Connection c = DriverManager.getConnection("jdbc:mysql://localhost/faculdade?useSSL=false",		
+			Connection c = DriverManager.getConnection("jdbc:mysql://localhost/portal_realnews?useSSL=false",		
 			"root", "");
 			
 			System.out.println("Conexão Estabelecida com Sucesso");

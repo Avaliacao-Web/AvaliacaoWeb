@@ -24,18 +24,20 @@ public class CadastraNoticiaController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("POST DO CADASTRO");
 		//doGet(request, response);
-		String nId = request.getParameter("id");
+		//String nId = request.getParameter("id");
 		String nTitulo = request.getParameter("titulo");
 		String nDescricao = request.getParameter("descricao");
 		String nTexto = request.getParameter("texto");
 		
 		//instanciar o javabean
 		Noticia noticia = new Noticia();
-		noticia.setId(Integer.parseInt(nId));
+		noticia.setId(-1);
 		noticia.setTitulo(nTitulo);
 		noticia.setDescricao(nDescricao);
 		noticia.setTexto(nTexto);
+		System.out.println("noticia: " + noticia);
 		
 		//instanciar o service
 		NoticiaService cs = new NoticiaService();
