@@ -19,7 +19,7 @@ public class NoticiaDAO {
 		System.out.println("Entrou no insert");
 		NoticiaDAO dao = new NoticiaDAO();
 		String inserir = "INSERT INTO Noticia (id, nome, senha, email)" + "VALUES(?,?,?,?)";
-		
+		//test
 		Noticia not = new Noticia(); 
 		
 		try (PreparedStatement pst = conexao.prepareStatement(inserir)){
