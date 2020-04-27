@@ -49,7 +49,6 @@ public class NoticiaDAO {
 		try (PreparedStatement pst = conexao.prepareStatement(delete)){
 			pst.setString(1, noticia.getTitulo());
 			pst.execute();
-			
 			System.out.println("Noticia excluida");
 			
 		} catch(SQLException ex){

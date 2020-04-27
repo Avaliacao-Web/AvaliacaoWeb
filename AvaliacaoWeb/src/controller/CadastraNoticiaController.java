@@ -19,14 +19,6 @@ import service.NoticiaService;
 @WebServlet("/CadastraNoticiaController.do")
 public class CadastraNoticiaController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -48,6 +40,5 @@ public class CadastraNoticiaController extends HttpServlet {
 		//instanciar o service
 		NoticiaService cs = new NoticiaService();
 		cs.criar(noticia);
-		noticia = cs.carregar(noticia);
 	}
 }
