@@ -5,48 +5,31 @@
 		<style>
 		
 		body {
-		  font-family: Arial, Helvetica, sans-serif;
-		  
+			background-color: #778899;
+			font-family: Arial, Helvetica, sans-serif;
+			text-align:center;
+			margin: 0;
+    		position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    margin-right: -50%;
+		    transform: translate(-50%, -50%);
 		}
-		
-		
-		input[type=text], select, textarea {
-		  width: 100%;
-		  padding: 12px;
-		  border: 1px solid #ccc;
-		  margin-top: 6px;
-		  margin-bottom: 16px;
-		  resize: vertical;
-		}
-		
-		input[type=submit] {
+		a{background-color: #4169E1;}
+		button {
 		  background-color: #4169E1;
 		  color: white;
 		  padding: 12px 20px;
 		  border: none;
 		  cursor: pointer;
-		  
+		  text-align:center;
 		}
-		
-		.botoes{
-		text-align:center;
-		}
-		
 		</style>
-		<title>Área de Cadastro</title>
+		<title>Home</title>
 	</head>
 	<body>
 		<h1>Real News</h1>
-		<form action="CadastraNoticiaController.do" method="post">
-			<label for="titulo">Título da Notícia</label>
-			<input type="text" id="titulo" name="tituloNoticia" placeholder="Título..">
-			<label for="subject">Notícia</label>
-			<textarea id="subject" name="subject" placeholder="Escreva a Notícia.." style="height:170px"></textarea>
-			<div class="botoes">
-			<input type="submit" value="Enviar"/>
-			<input type="submit" value="Editar"/>
-			<input onclick="window.location.href ='#;'" type="submit" value="Menu"/>
-			</div>
-		</form>
+		<button> <a href="paginaInicial.html">Listar Noticias</a></button>
+		<button> <a href="cadastraNoticia.html">Cadastrar Noticias</a></button>
 	</body>
 </html>

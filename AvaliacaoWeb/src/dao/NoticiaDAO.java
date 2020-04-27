@@ -18,20 +18,20 @@ public class NoticiaDAO {
 	public void insert (Noticia noticia) {
 		System.out.println("Entrou no insert");
 		NoticiaDAO dao = new NoticiaDAO();
-		String inserir = "INSERT INTO Noticia (id, nome, senha, email)" + "VALUES(?,?,?,?)";
+		String inserir = "INSERT INTO Noticia (id, titulo, descricao, texto)" + "VALUES(?,?,?,?)";
 		//test
 		Noticia not = new Noticia(); 
 		
 		try (PreparedStatement pst = conexao.prepareStatement(inserir)){
-			pst.setInt(1, not.getId());
-			pst.setString(2, not.getTitulo());
-			pst.setString(3, not.getDescricao());
-			pst.setString(4, not.getTexto());
+			pst.setInt(1, noticia.getId());
+			pst.setString(2, noticia.getTitulo());
+			pst.setString(3, noticia.getDescricao());
+			pst.setString(4, noticia.getTexto());
 			
-			not.setId(not.getId());
-			not.setTitulo(not.getTitulo());
-			not.setDescricao(not.getDescricao());
-			not.setTexto(not.getTexto());
+			not.setId(noticia.getId());
+			not.setTitulo(noticia.getTitulo());
+			not.setDescricao(noticia.getDescricao());
+			not.setTexto(noticia.getTexto());
 			
 			pst.execute();
 			System.out.println("Insert feito com sucesso");

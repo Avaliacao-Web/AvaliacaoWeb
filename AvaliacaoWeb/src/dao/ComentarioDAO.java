@@ -27,9 +27,9 @@ private Connection conexao;
 			pst.setString(2, comentario.getNome());
 			pst.setString(3, comentario.getTexto());
 			
-			not.setId(not.getId());
-			not.setNome(not.getNome());
-			not.setTexto(not.getTexto());
+			not.setId(comentario.getId());
+			not.setNome(comentario.getNome());
+			not.setTexto(comentario.getTexto());
 			
 			pst.execute();
 			System.out.println("Insert feito com sucesso");
