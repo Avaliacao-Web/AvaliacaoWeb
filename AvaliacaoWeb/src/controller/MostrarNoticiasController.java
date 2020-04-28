@@ -28,15 +28,16 @@ public class MostrarNoticiasController extends HttpServlet {
 		
 		Noticia noticia = new Noticia();
 		NoticiaService ns = new NoticiaService();
+		PrintWriter out = response.getWriter();
+		out.print("<html><head><title>Noticia</title><body>");
 		for(Noticia noticia1 : ns.carregarTudo()) {
 			System.out.println("NOTICIA: " + noticia1);
 			noticia = noticia1;
-			PrintWriter out = response.getWriter();
-			out.println("<html><head><title>Noticia</title>");
-			out.println("Titulo: " + noticia.getTitulo() + "<br>" + 
-						"Descrição: " + noticia.getDescricao() +
-						"<br>" + "Texto: " + noticia.getTexto());
-			out.println("</body></html>");
+			out.print("<br> Titulo: " + noticia.getTitulo() + 
+						" Descrição: " + noticia.getDescricao());
+						//" Texto: " + noticia.getTexto());
 		}
+		//out.print("<a href=ViewNoticia.do + noticia.getId() + >+ noticia.getTitulo() + </a>");
+		out.print("</body></html>");
 	}
 }

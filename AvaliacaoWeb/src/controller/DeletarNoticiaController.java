@@ -13,10 +13,10 @@ import model.Noticia;
 import service.NoticiaService;
 
 /**
- * Servlet implementation class ViewNoticiaController
+ * Servlet implementation class DeletarNoticiaController
  */
-@WebServlet("/ViewNoticiaController.do")
-public class ViewNoticiaController extends HttpServlet {
+@WebServlet("/DeletarNoticiaController.do")
+public class DeletarNoticiaController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -24,17 +24,19 @@ public class ViewNoticiaController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//doGet(request, response);
+		System.out.println("POST DO DELETAR");
 		int id = Integer.parseInt(request.getParameter("id"));
-				
+		System.out.println("Id Delete: " + id);
+		
 		Noticia noticia = new Noticia();
 		NoticiaService ns = new NoticiaService();
 		noticia = ns.carregar(id);
+		//ns.excluir(noticia);
 		
 		PrintWriter out = response.getWriter();
-		out.println("<html><head><title>Noticia</title>");
-		out.println("Titulo: " + noticia.getTitulo() + 
-					" Descrição: " + noticia.getDescricao() +
-					" Texto: " + noticia.getTexto());
-		out.println("</body></html>");
+		out.print("Essa é a noticia: " + noticia.toString());
+		//ns.excluir(noticia);
+		out.print("Noticia Apagada com Sucesso. Noticias: " + ns.carregarTudo());
+		
 	}
 }

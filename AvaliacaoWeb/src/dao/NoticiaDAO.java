@@ -112,10 +112,9 @@ public class NoticiaDAO {
 		String consulta = "SELECT id, titulo, descricao, texto FROM Noticia";
 				
 		try (PreparedStatement pst = conexao.prepareStatement(consulta)){
-			//pst.setInt(1, id);
 			ResultSet resultado = pst.executeQuery();
 			
-			if(resultado.next()) {
+			while(resultado.next()) {
 				not = new Noticia();
 				
 				int idNoticia = resultado.getInt("id");
@@ -128,10 +127,9 @@ public class NoticiaDAO {
 				not.setDescricao(descricao);
 				not.setTexto(texto);
 				System.out.println("Essa é a noticia: " + not.toString());
-				
+				lstNoticia.add(not);
 			}
 			System.out.println("Consulta feita com sucesso");
-			lstNoticia.add(not);
 		} catch(SQLException ex) {	
 			ex.printStackTrace();
 			System.out.println("Falha na consulta");
