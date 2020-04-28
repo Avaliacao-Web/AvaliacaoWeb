@@ -26,6 +26,7 @@ public class MostrarNoticiasController extends HttpServlet {
 		//doGet(request, response);
 		System.out.println("POST DO LISTAR NOTICIA");
 		
+		
 		Noticia noticia = new Noticia();
 		NoticiaService ns = new NoticiaService();
 		PrintWriter out = response.getWriter();
