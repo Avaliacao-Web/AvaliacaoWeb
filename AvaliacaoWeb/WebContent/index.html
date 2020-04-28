@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<style>
+		
+		body {
+			background-color: #778899;
+			font-family: Arial, Helvetica, sans-serif;
+			text-align:center;
+			margin: 0;
+    		position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    margin-right: -50%;
+		    transform: translate(-50%, -50%);
+		}
+		a{background-color: #4169E1;}
+		button {
+		  background-color: #4169E1;
+		  color: white;
+		  padding: 12px 20px;
+		  border: none;
+		  cursor: pointer;
+		  text-align:center;
+		}
+		</style>
+		<title>Home</title>
+	</head>
+	<body>
+		<h1>Real News</h1>
+		<form action="MostrarNoticiasController.do" method="post">
+			<button type="submit">Listar Noticias</button>
+		</form>
+		<button> <a href="cadastraNoticia.html">Cadastrar Noticias</a></button>
+	</body>
+</html>

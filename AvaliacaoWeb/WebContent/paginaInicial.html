@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="ISO-8859-1">
+	<style>
+		body {font-family: Arial, Helvetica, sans-serif;}
+		input[type=text], select, textarea {
+		  width: 100%;
+		  padding: 12px;
+		  border: 1px solid #ccc;
+		  margin-top: 6px;
+		  margin-bottom: 16px;
+		  resize: vertical;
+		}
+		.botoes{
+		text-align:center;
+		}
+		input[type=submit] {
+		  background-color: #4169E1;
+		  color: white;
+		  padding: 12px 20px;
+		  border: none;
+		  cursor: pointer;
+		  
+		}
+	</style>
+	<title>Página Inicial</title>
+	</head>
+	<body>
+		<h1>Real News</h1>
+		<!-- Titulo da Noticia,  -->
+		<!-- Descrição da Noticia -->
+		<h1>Comentários</h1>
+		<!-- Listagem dos Comentários -->
+		<h5>Adicionar Comentário</h5>
+		<form action="InserirComentarioController.do" method="post">
+			<label for="fname">Nome:</label>
+			<input type="text" id="fname" name="firstname" placeholder="Seu Nome..">
+			<label for="subject">Comentário</label>
+			<textarea id="subject" name="subject" placeholder="Escreva alguma coisa.." style="height:170px"></textarea>
+			<div class="botoes">
+				<input type="submit" value="Comentar"/>
+			</div>
+		</form>
+		<input onclick="window.location.href ='index.html'" type="submit" value="Menu"/>
+	</body>
+</html>

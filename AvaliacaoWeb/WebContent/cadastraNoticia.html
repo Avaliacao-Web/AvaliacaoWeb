@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<style>
+		body {font-family: Arial, Helvetica, sans-serif;}
+		input[type=text], select, textarea {
+		  width: 100%;
+		  padding: 12px;
+		  border: 1px solid #ccc;
+		  margin-top: 6px;
+		  margin-bottom: 16px;
+		  resize: vertical;
+		}
+		input[type=submit] {
+		  background-color: #4169E1;
+		  color: white;
+		  padding: 12px 20px;
+		  border: none;
+		  cursor: pointer;
+		}
+		.botoes{
+		text-align:center;
+		}
+		</style>
+		<title>Área de Cadastro</title>
+	</head>
+	<body>
+		<h1>Real News</h1>
+		<form action="CadastraNoticiaController.do" method="post">
+			<label for="titulo">Título da Notícia</label>
+			<input type="text" id="titulo" name="titulo" placeholder="Título..">
+			<label for="titulo">Descrição da Notícia</label>
+			<input type="text" id="descricao" name="descricao" placeholder="Descrição...">
+			<label for="subject">Notícia</label>
+			
+			<textarea id="subject" name="texto" placeholder="Escreva a Notícia.." style="height:170px"></textarea>
+			<div class="botoes">
+			<input type="submit" value="Enviar"/>
+			</div>
+		</form>
+		<form action="DeletarNoticiaController.do" method="post">
+			<button type="submit"> Deletar </button>
+		</form>
+		<input onclick="window.location.href ='index.html'" type="submit" value="Menu"/>
+	</body>
+</html>
