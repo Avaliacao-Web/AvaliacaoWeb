@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,6 +37,8 @@ public class InserirComentarioController extends HttpServlet {
 		
 		ComentarioService cs = new ComentarioService();
 		cs.criar(comentario);
+		
+		RequestDispatcher view = request.getRequestDispatcher("paginaInicial.html");
+		view.forward(request, response);
 	}
-
 }

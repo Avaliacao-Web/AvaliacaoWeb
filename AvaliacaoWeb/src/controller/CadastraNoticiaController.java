@@ -28,7 +28,7 @@ public class CadastraNoticiaController extends HttpServlet {
 		//doGet(request, response);
 		//String nId = request.getParameter("id");
 		String nTitulo = request.getParameter("titulo");
-		String nDescricao = request.getParameter("subject");
+		String nDescricao = request.getParameter("descricao");
 		String nTexto = request.getParameter("texto");
 		
 		//instanciar o javabean
@@ -43,7 +43,7 @@ public class CadastraNoticiaController extends HttpServlet {
 		NoticiaService cs = new NoticiaService();
 		cs.criar(noticia);
 		
-		RequestDispatcher view = request.getRequestDispatcher("paginaIncial.html");
+		RequestDispatcher view = request.getRequestDispatcher("paginaInicial.html");
 		view.forward(request, response);
 	}
 }
