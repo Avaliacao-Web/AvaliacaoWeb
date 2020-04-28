@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import model.Noticia;
 
@@ -74,12 +75,12 @@ public class NoticiaDAO {
 		}
 	}
 	
-	public Noticia select (Noticia noticia) {
+	public Noticia select (int id) {
 		Noticia not = null;
 		String consulta = "SELECT id, titulo, descricao, texto FROM Noticia WHERE id = ?";
 				
 		try (PreparedStatement pst = conexao.prepareStatement(consulta)){
-			pst.setInt(1, noticia.getId());
+			pst.setInt(1, id);
 			ResultSet resultado = pst.executeQuery();
 			
 			if(resultado.next()) {
@@ -103,5 +104,38 @@ public class NoticiaDAO {
 			System.out.println("Falha na consulta");
 		}
 		return not;
+	}
+	
+	public ArrayList<Noticia> selectAll () {
+		ArrayList<Noticia> lstNoticia = new ArrayList<Noticia>();
+		Noticia not = null;
+		String consulta = "SELECT id, titulo, descricao, texto FROM Noticia";
+				
+		try (PreparedStatement pst = conexao.prepareStatement(consulta)){
+			//pst.setInt(1, id);
+			ResultSet resultado = pst.executeQuery();
+			
+			if(resultado.next()) {
+				not = new Noticia();
+				
+				int idNoticia = resultado.getInt("id");
+				String titulo = resultado.getString("titulo");
+				String descricao = resultado.getString("descricao");
+				String texto = resultado.getString("texto");
+				
+				not.setId(idNoticia);
+				not.setTitulo(titulo);
+				not.setDescricao(descricao);
+				not.setTexto(texto);
+				System.out.println("Essa é a noticia: " + not.toString());
+				
+			}
+			System.out.println("Consulta feita com sucesso");
+			lstNoticia.add(not);
+		} catch(SQLException ex) {	
+			ex.printStackTrace();
+			System.out.println("Falha na consulta");
+		}
+		return lstNoticia;
 	}
 }

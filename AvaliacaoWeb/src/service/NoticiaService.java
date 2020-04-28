@@ -1,5 +1,7 @@
 package service;
 
+import java.util.ArrayList;
+
 import dao.NoticiaDAO;
 import model.Noticia;
 
@@ -20,7 +22,11 @@ public class NoticiaService {
 		dao.delete(noticia);
 	}
 	
-	public Noticia carregar(Noticia noticia){
-		return dao.select(noticia);
+	public Noticia carregar(int id){
+		return dao.select(id);
+	}
+	
+	public ArrayList<Noticia> carregarTudo(){
+		return dao.selectAll();
 	}
 }
